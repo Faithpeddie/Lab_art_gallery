@@ -70,4 +70,14 @@ public class GalleryTest {
         assertThat(result).isEqualTo(artwork);
     }
 
+    @Test
+    public void canStock_take(){
+        Artwork firstArtwork = new Artwork("The Starry Night", 1000000000, "Van Gogh");
+        gallery.addArtworkToStock(firstArtwork);
+        Artwork secondArtwork = new Artwork("The Potato Eaters", 500000000, "Van Gogh");
+        gallery.addArtworkToStock(secondArtwork);
+        double result = gallery.stock_take();
+        double expected = 1000000000 + 500000000;
+        assertThat(result).isEqualTo(expected);
+    }
 }
